@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cadastro | Sistema Solar Honório</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <!-- intl-tel-input: seletor de país no telefone -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.4/build/css/intlTelInput.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,180 +12,110 @@
 
   <section class="section" style="padding-top: 140px;">
     <div class="container">
-      <h2 class="section-title">Cadastro para Orçamento</h2>
-      <p class="section-subtitle">Preencha seus dados e receba um atendimento personalizado em até 24h.</p>
+      <h2 class="section-title">Solicitar Orçamento</h2>
+      <p class="section-subtitle">Preencha e retornamos em até 24h.</p>
 
       <form id="formCadastro" class="form-box" novalidate>
 
-        <!-- ===== DADOS PESSOAIS ===== -->
-        <fieldset class="form-fieldset">
-          <legend class="form-legend">
-            <i class="fas fa-user"></i> Dados Pessoais
-          </legend>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="nome">Nome Completo *</label>
-              <input type="text" id="nome" required placeholder="Seu nome completo">
-            </div>
-            <div class="form-group">
-              <label for="email">E-mail *</label>
-              <input type="email" id="email" required placeholder="seu@email.com">
-            </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nome">Nome completo *</label>
+            <input type="text" id="nome" required placeholder="Seu nome">
           </div>
+          <div class="form-group">
+            <label for="email">E-mail *</label>
+            <input type="email" id="email" required placeholder="voce@email.com">
+          </div>
+        </div>
 
+        <div class="form-row">
           <div class="form-group">
             <label for="cpfCnpj">CPF ou CNPJ *</label>
             <input type="text" id="cpfCnpj" required placeholder="000.000.000-00" maxlength="18">
           </div>
-        </fieldset>
-
-        <!-- ===== CONTATO ===== -->
-        <fieldset class="form-fieldset">
-          <legend class="form-legend">
-            <i class="fas fa-phone-alt"></i> Contato
-          </legend>
-
           <div class="form-group">
             <label for="telefone">Telefone / WhatsApp *</label>
-            <input type="tel" id="telefone" required data-intl="true">
-            <small class="form-hint">
-              <i class="fas fa-info-circle"></i>
-              Selecione seu país na bandeirinha e digite apenas o número local (DDD + número).
-            </small>
-          </div>
-
-          <div class="form-group">
-            <label class="checkbox-label" style="font-weight:500; color:var(--dark);">
-              <input type="checkbox" id="isWhatsapp" checked>
-              <span>Este número também é WhatsApp</span>
-            </label>
-          </div>
-        </fieldset>
-
-        <!-- ===== ENDEREÇO ===== -->
-        <fieldset class="form-fieldset">
-          <legend class="form-legend">
-            <i class="fas fa-map-marker-alt"></i> Endereço
-          </legend>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="cep">CEP *</label>
-              <input type="text" id="cep" required placeholder="00000-000" maxlength="9">
-              <small class="form-hint">Preenche rua, bairro e cidade automaticamente.</small>
-            </div>
-            <div class="form-group">
-              <label for="pais">País *</label>
-              <select id="pais" required>
-                <option value="BR">Brasil</option>
-                <option value="AR">Argentina</option>
-                <option value="PY">Paraguai</option>
-                <option value="UY">Uruguai</option>
-                <option value="US">Estados Unidos</option>
-                <option value="PT">Portugal</option>
+            <div class="phone-group">
+              <select id="countryCode" aria-label="Código do país">
+                <option value="+55" data-mask="br" selected>🇧🇷 +55</option>
+                <option value="+54" data-mask="ar">🇦🇷 +54</option>
+                <option value="+595" data-mask="py">🇵🇾 +595</option>
+                <option value="+598" data-mask="uy">🇺🇾 +598</option>
+                <option value="+1" data-mask="us">🇺🇸 +1</option>
+                <option value="+351" data-mask="pt">🇵🇹 +351</option>
+                <option value="+34" data-mask="es">🇪🇸 +34</option>
+                <option value="+39" data-mask="it">🇮🇹 +39</option>
+                <option value="+49" data-mask="de">🇩🇪 +49</option>
+                <option value="+44" data-mask="uk">🇬🇧 +44</option>
+                <option value="+81" data-mask="jp">🇯🇵 +81</option>
+                <option value="+86" data-mask="cn">🇨🇳 +86</option>
               </select>
+              <input type="tel" id="telefone" required placeholder="(44) 99999-9999">
             </div>
           </div>
-
-          <div class="form-row" style="grid-template-columns: 1fr 140px;">
-            <div class="form-group">
-              <label for="endereco">Logradouro / Rua</label>
-              <input type="text" id="endereco" placeholder="Rua, avenida, rodovia...">
-            </div>
-            <div class="form-group">
-              <label for="numero">Número *</label>
-              <input type="text" id="numero" required placeholder="123">
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="complemento">Complemento</label>
-              <input type="text" id="complemento" placeholder="Apto, bloco, fundos...">
-            </div>
-            <div class="form-group">
-              <label for="bairro">Bairro</label>
-              <input type="text" id="bairro" placeholder="Bairro">
-            </div>
-          </div>
-
-          <div class="form-row" style="grid-template-columns: 1fr 100px;">
-            <div class="form-group">
-              <label for="cidade">Cidade</label>
-              <input type="text" id="cidade" placeholder="Cidade">
-            </div>
-            <div class="form-group">
-              <label for="estado">UF</label>
-              <input type="text" id="estado" placeholder="PR" maxlength="2" style="text-transform:uppercase;">
-            </div>
-          </div>
-        </fieldset>
-
-        <!-- ===== SOBRE O PROJETO ===== -->
-        <fieldset class="form-fieldset">
-          <legend class="form-legend">
-            <i class="fas fa-solar-panel"></i> Sobre o Projeto
-          </legend>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="tipoImovel">Tipo de Imóvel</label>
-              <select id="tipoImovel">
-                <option>Residencial</option>
-                <option>Comercial</option>
-                <option>Rural</option>
-                <option>Industrial</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="tipoSistema">Tipo de Sistema</label>
-              <select id="tipoSistema">
-                <option>ON GRID</option>
-                <option>OFF GRID</option>
-                <option>ZERO GRID</option>
-                <option>HÍBRIDO</option>
-                <option>BESS</option>
-                <option>Ainda não sei</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="consumo">Consumo médio mensal (kWh)</label>
-              <input type="text" id="consumo" placeholder="Ex: 450">
-              <small class="form-hint">Está na sua conta de luz. Opcional.</small>
-            </div>
-            <div class="form-group">
-              <label for="origem">Como nos conheceu?</label>
-              <select id="origem">
-                <option>Indicação</option>
-                <option>Instagram</option>
-                <option>Google</option>
-                <option>Facebook</option>
-                <option>Passou em frente</option>
-                <option>Outro</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="mensagem">Observações</label>
-            <textarea id="mensagem" rows="3" placeholder="Conte mais sobre seu projeto, dúvidas ou necessidades..."></textarea>
-          </div>
-        </fieldset>
-
-        <!-- ===== TERMOS E ENVIO ===== -->
-        <div class="form-terms">
-          <label class="checkbox-label">
-            <input type="checkbox" id="termos" required>
-            <span>Autorizo o contato da Sistema Solar Honório e concordo com o uso dos meus dados para fins comerciais.</span>
-          </label>
         </div>
 
+        <div class="form-row" style="grid-template-columns: 160px 1fr;">
+          <div class="form-group">
+            <label for="cep">CEP *</label>
+            <input type="text" id="cep" required placeholder="00000-000" maxlength="9" inputmode="numeric">
+          </div>
+          <div class="form-group">
+            <label for="endereco">Logradouro</label>
+            <input type="text" id="endereco" placeholder="Rua, avenida...">
+          </div>
+        </div>
+
+        <div class="form-row" style="grid-template-columns: 120px 1fr 1fr;">
+          <div class="form-group">
+            <label for="numero">Número *</label>
+            <input type="text" id="numero" required placeholder="123">
+          </div>
+          <div class="form-group">
+            <label for="complemento">Complemento</label>
+            <input type="text" id="complemento" placeholder="Apto, bloco...">
+          </div>
+          <div class="form-group">
+            <label for="bairro">Bairro</label>
+            <input type="text" id="bairro" placeholder="Bairro">
+          </div>
+        </div>
+
+        <div class="form-row" style="grid-template-columns: 1fr 80px;">
+          <div class="form-group">
+            <label for="cidade">Cidade</label>
+            <input type="text" id="cidade" placeholder="Cidade">
+          </div>
+          <div class="form-group">
+            <label for="estado">UF</label>
+            <input type="text" id="estado" maxlength="2" placeholder="PR" style="text-transform:uppercase;">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="tipoSistema">Tipo de sistema</label>
+          <select id="tipoSistema">
+            <option>ON GRID</option>
+            <option>OFF GRID</option>
+            <option>ZERO GRID</option>
+            <option>HÍBRIDO</option>
+            <option>BESS</option>
+            <option>Ainda não sei</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="mensagem">Mensagem (opcional)</label>
+          <textarea id="mensagem" rows="3" placeholder="Conta pra gente sobre seu projeto..."></textarea>
+        </div>
+
+        <label class="checkbox-label form-terms">
+          <input type="checkbox" id="termos" required>
+          <span>Autorizo o contato da Sistema Solar Honório.</span>
+        </label>
+
         <button type="submit" class="btn btn-primary btn-block">
-          <i class="fas fa-paper-plane"></i> Enviar Cadastro
+          <i class="fas fa-paper-plane"></i> Enviar
         </button>
         <div id="formStatus" class="form-status"></div>
       </form>
@@ -195,9 +123,6 @@
   </section>
 
   <div id="footer"></div>
-
-  <!-- intl-tel-input JS -->
-  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.4/build/js/intlTelInput.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
