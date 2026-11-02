@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro | Sistema Solar Honório</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="navbar"></div>
+
+  <section class="section" style="padding-top: 140px;">
+    <div class="container">
+      <h2 class="section-title">Cadastro para Orçamento</h2>
+      <p class="section-subtitle">Preencha seus dados e receba um atendimento personalizado em até 24h.</p>
+
+      <form id="formCadastro" class="form-box">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nome">Nome Completo *</label>
+            <input type="text" id="nome" required placeholder="Seu nome">
+          </div>
+          <div class="form-group">
+            <label for="email">E-mail *</label>
+            <input type="email" id="email" required placeholder="seu@email.com">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="cpfCnpj">CPF ou CNPJ *</label>
+            <input type="text" id="cpfCnpj" required placeholder="000.000.000-00" maxlength="18">
+          </div>
+          <div class="form-group">
+            <label for="telefone">Telefone *</label>
+            <input type="tel" id="telefone" required placeholder="(00) 00000-0000">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="pais">País *</label>
+            <select id="pais" required>
+              <option value="BR">Brasil</option>
+              <option value="AR">Argentina</option>
+              <option value="PY">Paraguai</option>
+              <option value="UY">Uruguai</option>
+              <option value="US">Estados Unidos</option>
+              <option value="PT">Portugal</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="cep">CEP *</label>
+            <input type="text" id="cep" required placeholder="00000-000" maxlength="9">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="endereco">Endereço</label>
+            <input type="text" id="endereco" readonly placeholder="Preenchido automaticamente">
+          </div>
+          <div class="form-group">
+            <label for="cidade">Cidade/UF</label>
+            <input type="text" id="cidade" readonly placeholder="Preenchido automaticamente">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="tipoSistema">Tipo de Sistema Desejado</label>
+          <select id="tipoSistema">
+            <option>ON GRID</option>
+            <option>OFF GRID</option>
+            <option>ZERO GRID</option>
+            <option>HÍBRIDO</option>
+            <option>BESS</option>
+            <option>Ainda não sei</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Enviar Cadastro</button>
+        <div id="formStatus" class="form-status"></div>
+      </form>
+    </div>
+  </section>
+
+  <div id="footer"></div>
+  <script src="script.js"></script>
+</body>
+</html>
