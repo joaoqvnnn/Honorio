@@ -5,12 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cadastro | Sistema Solar Honório</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Biblioteca do Telefone Internacional -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.4/build/css/intlTelInput.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div id="navbar"></div>
 
-  <section class="section" style="padding-top: 140px;">
+  <section class="section" style="padding-top: 120px;">
     <div class="container">
       <h2 class="section-title">Solicitar Orçamento</h2>
       <p class="section-subtitle">Preencha e retornamos em até 24h.</p>
@@ -35,27 +37,11 @@
           </div>
           <div class="form-group">
             <label for="telefone">Telefone / WhatsApp *</label>
-            <div class="phone-group">
-              <select id="countryCode" aria-label="Código do país">
-                <option value="+55" data-mask="br" selected>🇧🇷 +55</option>
-                <option value="+54" data-mask="ar">🇦🇷 +54</option>
-                <option value="+595" data-mask="py">🇵🇾 +595</option>
-                <option value="+598" data-mask="uy">🇺🇾 +598</option>
-                <option value="+1" data-mask="us">🇺🇸 +1</option>
-                <option value="+351" data-mask="pt">🇵🇹 +351</option>
-                <option value="+34" data-mask="es">🇪🇸 +34</option>
-                <option value="+39" data-mask="it">🇮🇹 +39</option>
-                <option value="+49" data-mask="de">🇩🇪 +49</option>
-                <option value="+44" data-mask="uk">🇬🇧 +44</option>
-                <option value="+81" data-mask="jp">🇯🇵 +81</option>
-                <option value="+86" data-mask="cn">🇨🇳 +86</option>
-              </select>
-              <input type="tel" id="telefone" required placeholder="(44) 99999-9999">
-            </div>
+            <input type="tel" id="telefone" required>
           </div>
         </div>
 
-        <div class="form-row" style="grid-template-columns: 160px 1fr;">
+        <div class="form-row">
           <div class="form-group">
             <label for="cep">CEP *</label>
             <input type="text" id="cep" required placeholder="00000-000" maxlength="9" inputmode="numeric">
@@ -66,7 +52,7 @@
           </div>
         </div>
 
-        <div class="form-row" style="grid-template-columns: 120px 1fr 1fr;">
+        <div class="form-row row-3">
           <div class="form-group">
             <label for="numero">Número *</label>
             <input type="text" id="numero" required placeholder="123">
@@ -81,7 +67,7 @@
           </div>
         </div>
 
-        <div class="form-row" style="grid-template-columns: 1fr 80px;">
+        <div class="form-row row-uf">
           <div class="form-group">
             <label for="cidade">Cidade</label>
             <input type="text" id="cidade" placeholder="Cidade">
@@ -106,16 +92,18 @@
 
         <div class="form-group">
           <label for="mensagem">Mensagem (opcional)</label>
-          <textarea id="mensagem" rows="3" placeholder="Conta pra gente sobre seu projeto..."></textarea>
+          <textarea id="mensagem" rows="4" placeholder="Conte pra gente sobre seu projeto, consumo ou dúvidas..."></textarea>
         </div>
 
-        <label class="checkbox-label form-terms">
-          <input type="checkbox" id="termos" required>
-          <span>Autorizo o contato da Sistema Solar Honório.</span>
-        </label>
+        <div class="form-terms">
+          <label class="checkbox-label">
+            <input type="checkbox" id="termos" required>
+            <span>Autorizo o contato da Sistema Solar Honório.</span>
+          </label>
+        </div>
 
         <button type="submit" class="btn btn-primary btn-block">
-          <i class="fas fa-paper-plane"></i> Enviar
+          <i class="fas fa-paper-plane"></i> Enviar Cadastro
         </button>
         <div id="formStatus" class="form-status"></div>
       </form>
@@ -123,6 +111,9 @@
   </section>
 
   <div id="footer"></div>
+
+  <!-- JS da Biblioteca de Telefone -->
+  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.4/build/js/intlTelInput.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
